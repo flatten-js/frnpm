@@ -3,6 +3,7 @@
 
 const program = require('commander')
 const Enquirer = require('enquirer')
+const consola = require('consola')
 const path = require('path')
 const fs = require('fs')
 const csv = require('csv')
@@ -45,7 +46,13 @@ program
 
   const question = questionGenerator('nnrn', data, options)
   const answer = await enquirer.prompt(question)
-  rnpm(answer)
+
+  try {
+    rnpm(answer)
+  }
+  catch(err) {
+    consola.error(err)
+  }
 })
 
 program

@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "commander": "^4.1.1",
+    "consola": "^2.11.3",
     "csv": "^5.3.2",
     "enquirer": "^2.3.4",
     "luxon": "^1.22.0"
