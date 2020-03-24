@@ -51,4 +51,4 @@ $ frnpm log [options]
 ```
 
 ## License
-The MIT License ([MIT](https://github.com/flatten-js/frnpm/blob/readme/LICENSE))
+The MIT License ([MIT](https://github.com/flatten-js/frnpm/blob/master/LICENSE))
