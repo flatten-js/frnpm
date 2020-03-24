@@ -18,5 +18,36 @@ $ yarn global add frnpm
 ```
 
 ## Usage
+Run the app using ``` frnpm ``` command:
+
+Start the app:
+```
+$ frnpm start
+```
+
+### Set a preset
+The value set as a preset will be applied to each field as the initial value from the next time.  
+For example, the following ``` package.json ```:
+```
+{
+  ...
+  "scripts": { ... },
+  "preset": {
+    "blank": 228,
+    "select": 10
+  }
+}
+```
+
+Format and display the log:
+```
+$ frnpm log [options]
+
+  Options:
+
+    -u, --unique  Format into unique log data
+    -r, --result  Format log data into results only
+    -n, --newest  Format log to newest order
+```
 
 ## License
