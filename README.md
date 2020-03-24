@@ -6,6 +6,17 @@
 
 ## Getting Started
 
+### Install
+This is a Node.js module available through the npm registry.  
+Installation is done using the ``` npm install ``` command:
+```
+$ npm install -g frnpm
+
+# OR
+
+$ yarn global add frnpm
+```
+
 ## Usage
 
 ## License
