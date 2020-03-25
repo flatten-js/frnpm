@@ -65,7 +65,7 @@ program
   const logPath = resolve('log.csv')
 
   if (!fs.existsSync(logPath)) {
-    return console.error('\n', style.error('ログがありません。'))
+    return console.error('\n', style.error('Log was not found'))
   }
 
   fs.createReadStream(logPath)
