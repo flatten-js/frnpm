@@ -3,7 +3,6 @@
 
 const program = require('commander')
 const Enquirer = require('enquirer')
-const consola = require('consola')
 const path = require('path')
 const fs = require('fs')
 const csv = require('csv')
@@ -22,6 +21,7 @@ const {
   objectToString,
   selectArrayObjectProperty,
   sortArrayObjectDate,
+  style,
   uniqueArrayObject
 } = require(resolve('lib/util'))
 
@@ -51,7 +51,7 @@ program
     rnpm(answer)
   }
   catch(err) {
-    consola.error(err)
+    console.error('\n', style.error(err))
   }
 })
 
@@ -65,7 +65,7 @@ program
   const logPath = resolve('log.csv')
 
   if (!fs.existsSync(logPath)) {
-    return console.log('ログがありません')
+    return console.error('\n', style.error('ログがありません。'))
   }
 
   fs.createReadStream(logPath)
