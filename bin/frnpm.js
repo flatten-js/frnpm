@@ -5,7 +5,6 @@ const program = require('commander')
 const Enquirer = require('enquirer')
 const path = require('path')
 const fs = require('fs')
-const csv = require('csv')
 
 const resolve = (p) => path.resolve(p)
 
@@ -14,10 +13,12 @@ const Nnrn = require(resolve('lib/prompts/nnrn'))
 const Combos = require(resolve('lib/combos'))
 const { questionGenerator } = require(resolve('lib/prompts'))
 const rnpm = require(resolve('lib/rnpm'))
+const Linereader = require(resolve('lib/linereader'))
 
 const {
   createBorder,
   consolePager,
+  csvArrayParser,
   objectToString,
   selectArrayObjectProperty,
   sortArrayObjectDate,
@@ -68,11 +69,12 @@ program
     return console.error('\n', style.error('Log was not found'))
   }
 
-  fs.createReadStream(logPath)
-  .pipe(csv.parse({ columns: true }, (err, logs) => {
-    if (err) throw err
-
-    let hold = logs
+  const rs = fs.createReadStream(logPath)
+  const linereader = new Linereader(rs)
+  linereader.eachLine()
+  .then(csvArrayParser)
+  .then(format => {
+    let hold = format
 
     if (result) {
       hold = selectArrayObjectProperty(hold, [
@@ -99,7 +101,7 @@ program
     }, [border])
 
     consolePager(outputFormat.join('\n'))
-  }))
+  })
 })
 
 program.parse(process.argv)
