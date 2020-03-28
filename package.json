@@ -1,6 +1,19 @@
 {
   "name": "frnpm",
   "version": "1.0.3",
+  "description": "Simple auxiliary tool for smooth random number adjustment of Pokemon 4th generation",
+  "author": "__saito__ <thetakahito@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flatten-js/frnpm.git"
+  },
+  "keywords": [
+    "pokemon",
+    "4gen",
+    "adjust",
+    "RNG"
+  ],
   "bin": {
     "frnpm": "bin/frnpm.js"
   },
@@ -10,11 +23,6 @@
   "preset": {
     "select": 10
   },
-  "author": {
-    "name": "flat",
-    "email": "thetakahito@gmail.com"
-  },
-  "license": "MIT",
   "dependencies": {
     "commander": "^4.1.1",
     "enquirer": "^2.3.4"
